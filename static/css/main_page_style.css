@@ -1,0 +1,67 @@
+
+.text {
+    font-family: "Poppins", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.title {
+    width: 100%;
+    text-align: center;
+    font-family: "Montserrat", serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+    padding: 20px;
+} 
+
+#logo {
+    width: 20px;
+    height: 10px;
+}
+
+.navbar {
+    padding-top: 4px; /* Ajusta el padding superior */
+    padding-bottom: 4px; /* Ajusta el padding inferior */
+}
+
+.navbar-brand,
+.nav-link {
+  font-size: 20px; /* Tamaño de la fuente */
+}
+
+.navbar-brand {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif; /* Cambiar la fuente */
+    font-weight: bold; /* Peso de la fuente */
+    color: #333; /* Color del texto */
+    gap: 15px;
+  }
+  
+.nav-link {
+    font-family: 'Montserrat', sans-serif; /* Cambiar la fuente */
+    font-weight: 500; /* Peso de la fuente */
+    color: #555; /* Color del texto */
+    margin-right: 15px; /* Espaciado entre enlaces */
+}
+  
+.nav-link:hover {
+    color: #ffffff; /* Color al hacer hover */
+}
+
+.logo {
+    margin: 0 auto;
+    font-size: 47px;
+}
+
+.content {
+    display: grid;
+    row-gap: 10px;
+    width: 100%;
+}
+
+.carousel {
+    width: 100%;
+}
