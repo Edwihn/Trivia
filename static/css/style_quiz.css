@@ -1,8 +1,46 @@
 body {
     font-family: 'Comic Sans MS', cursive, sans-serif;
 }
+
+.navbar {
+	padding-top: 4px; /* Ajusta el padding superior */
+	padding-bottom: 4px; /* Ajusta el padding inferior */
+}
+
+.navbar-brand,
+.nav-link {
+  font-size: 20px; /* Tamaño de la fuente */
+}
+
+.navbar-brand {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif; /* Cambiar la fuente */
+    font-weight: bold; /* Peso de la fuente */
+    color: #000000; /* Color del texto */
+    gap: 15px;
+  }
+  
+.nav-link {
+    font-family: 'Montserrat', sans-serif; /* Cambiar la fuente */
+    font-weight: 500; /* Peso de la fuente */
+    color: #000000; /* Color del texto */
+    margin-right: 15px; /* Espaciado entre enlaces */
+}
+  
+.nav-link:hover {
+    color: #ffffff; /* Color al hacer hover */
+}
+
+.logo {
+    margin: 0 auto;
+    font-size: 47px;
+    color: #000000;
+}
+
 .quiz-container {
-    max-width: 600px;
+    width: 70%;
     margin: 50px auto;
     background: #fbf89a;
     padding: 20px;
@@ -33,3 +71,4 @@ h1 {
 .btn-submit:hover {
     background-color: #c70039;
 }
+
