@@ -8,9 +8,8 @@ quiz = Quiz()
 
 @main_bp.route("/")
 def index():
-    numbers = get_random_number(10,0,50)
     
-    return f'Si jalo prro, los siguientes son los numeros: {numbers}'
+    return render_template('main_page.html')
 
 @main_bp.route('/get_a_question')
 def get_question():
