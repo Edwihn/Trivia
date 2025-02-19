@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, url_for, redirect, request
 from models import get_db_connection, Quiz
 from utils import get_random_number
 
@@ -23,7 +23,31 @@ def get_question():
     
     return f'Esta es la pregunta perrillo {question}'
 
-@main_bp.route('/questions_video_games')
-def questions_video_games():
-    quiz.create_ten_questions(10,0,50)
-    questions = quiz.get_questions
+@main_bp.route('/questions/<category>', methods=['GET'])
+def questions_video_games(category):
+    match category:
+        case 'videogames':        
+            quiz.create_ten_questions(10,1,50)
+            return redirect(url_for('main.render_quiz_page', category='Videogames'))
+        case 'geography':
+            quiz.create_ten_questions(10,51,90)
+            return redirect(url_for('main.render_quiz_page', category='Geography'))
+        case 'general':
+            quiz.create_ten_questions(10,91,140)
+            return redirect(url_for('main.render_quiz_page', category='General Knowledge'))
+        case 'film':
+            quiz.create_ten_questions(10,141,170)
+            return redirect(url_for('render_quiz_page', category='Film movies'))
+        case 'music':
+            quiz.create_ten_questions(10,171,200)
+            return redirect(url_for('main.render_quiz_page', category='Music'))
+        case _:
+            return 'You must choose a category'
+
+@main_bp.route('/quiz/<category>')
+def render_quiz_page(category):
+    questions = quiz.get_questions()
+    print(questions)
+    if category and questions:
+        return render_template('test.html', category=category, questions=questions)
+    return 'there are not questions or category'
