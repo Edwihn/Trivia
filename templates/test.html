@@ -55,7 +55,7 @@
             <h1>{{category}}</h1>
         </header>
     
-        <form action="" method="POST">
+        <form action="{{url_for('main.answer')}}" method="POST">
             {% set i = namespace(count=0) %}
             {% for question in questions %}
             {% set i.count = i.count + 1 %}
