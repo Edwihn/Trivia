@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quiz Answers</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="../static/css/answer.css">
+</head>
+<body>
+  <div class="container quiz-container">
+    <h1 class="text-center mb-4">Quiz Answers</h1>
+    {% for question in questions %}
+      <div class="card question-card">
+        <div class="card-body">
+          <p class="question-text">{{ question.0 }}</p>
+          <div class="row">
+            <!-- Opción True -->
+            <div class="col-md-6">
+              <div class="option 
+                {% if (question.2 == 'correct_answer' and question.1 == 'True') or (question.2 == 'incorrect_answer' and question.1 == 'False') %} selected {% endif %}">
+                <span><strong>True</strong></span>
+                {% if (question.2 == 'correct_answer' and question.1 == 'True') or (question.2 == 'incorrect_answer' and question.1 == 'False') %}
+                  {% if question.2 == 'correct_answer' %}
+                    <i class="fa-solid fa-check text-success result-icon"></i>
+                  {% else %}
+                    <i class="fa-solid fa-xmark text-danger result-icon"></i>
+                  {% endif %}
+                {% endif %}
+              </div>
+            </div>
+            <!-- Opción False -->
+            <div class="col-md-6">
+              <div class="option 
+                {% if (question.2 == 'correct_answer' and question.1 == 'False') or (question.2 == 'incorrect_answer' and question.1 == 'True') %} selected {% endif %}">
+                <span><strong>False</strong></span>
+                {% if (question.2 == 'correct_answer' and question.1 == 'False') or (question.2 == 'incorrect_answer' and question.1 == 'True') %}
+                  {% if question.2 == 'correct_answer' %}
+                    <i class="fa-solid fa-check text-success result-icon"></i>
+                  {% else %}
+                    <i class="fa-solid fa-xmark text-danger result-icon"></i>
+                  {% endif %}
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  
+  <!-- Bootstrap Bundle JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

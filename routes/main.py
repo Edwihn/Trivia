@@ -9,6 +9,7 @@ quiz = Quiz()
 @main_bp.route("/")
 def index():
     
+    
     return render_template('main_page.html')
 
 @main_bp.route('/get_a_question')
@@ -46,7 +47,28 @@ def questions_video_games(category):
 @main_bp.route('/quiz/<category>')
 def render_quiz_page(category):
     questions = quiz.get_questions()
-    print(questions)
     if category and questions:
         return render_template('test.html', category=category, questions=questions)
     return 'there are not questions or category'
+
+@main_bp.route('/answers', methods=['POST'])
+def answer():
+    if request.method == 'POST':
+        questions_answers = []
+        for i in range(1,11):
+            questions_answers.append(request.form.get(f'questions{i}'))
+        
+        quiz.update_user_answers(questions_answers)
+        return redirect(url_for('main.render_answers'))
+    else:
+        return 'METHOD NOT ALLOWED'
+        
+@main_bp.route('/correct_incorrect_answers', methods=['GET'])
+def render_answers():
+    answers = quiz.get_user_answers()
+    print("HERE IS THE LEN PRROOOO: ", len(answers) )
+    questions = quiz.get_questions()
+    questions_and_answers = []
+    for i in range(0,10):
+        questions_and_answers.append([questions[i][2], questions[i][3], answers[i]])
+    return render_template('answers.html', questions=questions_and_answers)

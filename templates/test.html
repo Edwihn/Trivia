@@ -56,6 +56,7 @@
         </header>
         <form action="" method="POST">
             {% for question in questions %}
+            {% set i.count = i.count + 1 %}
                 <div class="question">
                     <label class="form-label">{{ question.2 }}</label>
 
