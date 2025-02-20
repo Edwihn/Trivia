@@ -15,7 +15,7 @@
 
     <nav class="navbar navbar-expand-lg" style="background-color: aquamarine;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{{url_for('main.index')}}">
                 <i class="fa-solid fa-otter logo"></i>
                 Trivia
             </a>
@@ -25,7 +25,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Home</a>
+                        <a class="nav-link" aria-current="page" href="{{url_for('main.index')}}">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Promos</a>
@@ -40,7 +40,18 @@
 
     <div class="quiz-container">
         <header class="titulo">
-            <i class="fa-solid fa-earth-americas logo_header"></i>
+            {% if category == 'General Knowledge'%}
+                <i class="fa-solid fa-lightbulb logo_header"></i>
+            {%elif category == 'Videogames'%}
+                <i class="fa-solid fa-gamepad logo_header"></i>
+            {%elif category == 'Geography'%}
+                <i class="fa-solid fa-earth-americas logo_header"></i>
+            {%elif category == 'Film movies'%}
+                <i class="fa-solid fa-clapperboard logo_header"></i>
+            {%else%}
+                <i class="fa-solid fa-music logo_header"></i>
+            {%endif%}
+
             <h1>{{category}}</h1>
         </header>
         <form action="" method="POST">

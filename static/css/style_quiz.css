@@ -94,7 +94,7 @@ h1 {
     display: block;
     width: 50%;
     margin: auto;
-    background-color: rgb(19, 231, 40);
+    background-color: rgba(19, 231, 40, 0.682);
     font-weight: bold;
     color: white;
     border: none;
