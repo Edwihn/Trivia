@@ -36,7 +36,7 @@ def questions_video_games(category):
             return redirect(url_for('main.render_quiz_page', category='General Knowledge'))
         case 'film':
             quiz.create_ten_questions(10,141,170)
-            return redirect(url_for('render_quiz_page', category='Film movies'))
+            return redirect(url_for('main.render_quiz_page', category='Film movies'))
         case 'music':
             quiz.create_ten_questions(10,171,200)
             return redirect(url_for('main.render_quiz_page', category='Music'))
