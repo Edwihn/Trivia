@@ -1,0 +1,46 @@
+
+    body {
+      background-color: #ffecd1;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+    .quiz-container {
+      width: 70%;
+      margin: 50px auto;
+      background: #fbf89a;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    .question-card {
+      margin-bottom: 20px;
+    }
+    .question-text {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #ff5733;
+    }
+    .option {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 10px 15px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #f9c74f;
+    }
+    .option.selected {
+      background-color: #d1ecf1;
+      border-color: #bee5eb;
+    }
+    .option.correct {
+      background-color: #d4edda;
+      border-color: #28a745;
+    }
+    .option.incorrect {
+      background-color: #f8d7da;
+      border-color: #dc3545;
+    }
+    .result-icon {
+      font-size: 1.5rem;
+    }

@@ -12,10 +12,13 @@ class Quiz:
     def __init__(self):
         self.array = []
         self.size = 0
+        self.user_answers = []
+        
     def add_question(self,difficulty, category, question, correct_answer):
         question = Question(difficulty, category, question, correct_answer)
         self.array.append(question)
         self.size+=1
+        
     def clear_array(self):
         if self.size <= 0:
             return 'There is nothing here'
@@ -34,6 +37,7 @@ class Quiz:
             question_list.append((self.array[i].difficulty, self.array[i].category, self.array[i].question, self.array[i].correct_answer))
         
         return question_list
+    
     def create_ten_questions(self, count, min_value, max_value):
         if self.size > 0:
             self.clear_array()
@@ -43,9 +47,7 @@ class Quiz:
             return 'Max number out of index'
         if min_value >= max_value:
             return 'Incorrect sintaxis (The min value is bigger than the max value or equals)'
-        
-        
-        
+    
         numbers = get_random_number(count, min_value, max_value)
         
         conn = get_db_connection()
@@ -56,10 +58,23 @@ class Quiz:
             query = 'SELECT * FROM trivia WHERE id_trivia = %s'
             cursor.execute(query, (i,))
             question = cursor.fetchone()
-            print('HERE IS THE QUESTION:', question[1])
             self.add_question(question[1],question[2], question[3],question[4])
             
         cursor.close()
+        
+    def update_user_answers(self, answers_array):
+        if not answers_array:
+            return print('Insert a valid array')
+        if self.size <= 0:
+            return print('There is not a question to add an answer')
+        
+        self.user_answers = answers_array
+        
+    def get_user_answers(self):
+        if len(self.user_answers) <= 0:
+            return print('There is not answers registered')
+        
+        return self.user_answers    
         
     def __str__(self):
         return '\n'.join([f"Difficulty: {question.difficulty}, Category: {question.category}, Question: {question.question}, Correct answer: {question.correct_answer}" for question in self.array])

@@ -37,11 +37,13 @@
 
     <div class="quiz-container">
         <h1>{{category}}</h1>
-        <form action="" method="POST">
+        <form action="{{ url_for('main.answer') }}" method="POST">
+            {% set i = namespace(count=0) %}
             {% for question in questions %}
+            {% set i.count = i.count + 1 %}
                 <div class="question">
                     <label class="form-label">{{ question.2 }}</label>
-                    <select class="form-select" name="">
+                    <select class="form-select" name="questions{{i.count}}">
                         {% if question.3 == 'True'%}
                             <option value="correct_answer">True</option>
                             <option value="incorrect_answer">False</option>
