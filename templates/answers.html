@@ -48,10 +48,10 @@
             <div class="col-md-6">
               <div class="option 
                 {% if (question.2 == 'correct_answer' and question.1 == 'True') or (question.2 == 'incorrect_answer' and question.1 == 'False') %} selected {% endif %}">
-                <span><strong>True</strong></span>
+                <span><strong style="color: white;">True</strong></span>
                 {% if (question.2 == 'correct_answer' and question.1 == 'True') or (question.2 == 'incorrect_answer' and question.1 == 'False') %}
                   {% if question.2 == 'correct_answer' %}
-                    <i class="fa-solid fa-check text-success result-icon"></i>
+                    <i class="fa-solid fa-check  result-icon" style="color: rgb(55, 255, 0);"></i>
                   {% else %}
                     <i class="fa-solid fa-xmark text-danger result-icon"></i>
                   {% endif %}
@@ -62,10 +62,10 @@
             <div class="col-md-6">
               <div class="option 
                 {% if (question.2 == 'correct_answer' and question.1 == 'False') or (question.2 == 'incorrect_answer' and question.1 == 'True') %} selected {% endif %}">
-                <span><strong>False</strong></span>
+                <span><strong style="color: white;">False</strong></span>
                 {% if (question.2 == 'correct_answer' and question.1 == 'False') or (question.2 == 'incorrect_answer' and question.1 == 'True') %}
                   {% if question.2 == 'correct_answer' %}
-                    <i class="fa-solid fa-check text-success result-icon"></i>
+                    <i class="fa-solid fa-check result-icon" style="color: rgb(55, 255, 0)  ;"></i>
                   {% else %}
                     <i class="fa-solid fa-xmark text-danger result-icon"></i>
                   {% endif %}

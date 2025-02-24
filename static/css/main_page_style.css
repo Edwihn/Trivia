@@ -1,3 +1,9 @@
+body, html {
+    height: 100%;
+     margin: 0;
+    display: flex;
+    flex-direction: column;
+}   
 
 .text {
     font-family: "Poppins", serif;
@@ -21,6 +27,8 @@
 }
 
 .navbar {
+    width: 100%; /* Ocupa todo el ancho */
+    z-index: 1000;
     padding-top: 4px; /* Ajusta el padding superior */
     padding-bottom: 4px; /* Ajusta el padding inferior */
 }
@@ -57,25 +65,32 @@
 }
 
 .content {
-    display: grid;
-    row-gap: 10px;
-    padding: 100px;
+    flex: 1; /* Ocupa el espacio restante */
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    padding: 10px; /* Espaciado opcional */
 }
 
-.carousel {
-    width: 100%;
-    height: 690px;
-    padding-bottom: 70px;
+#carouselExampleCaptions {
+    width: 100%; /* Ocupa el 100% del contenedor */
+    max-width: 900px; /* Ancho máximo del carrusel */
+    border-radius: 10px; /* Bordes redondeados */
+    overflow: hidden; /* Oculta el contenido que sobresale */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra opcional */
 }
 
-.carousel-inner {
-    height: 700px;
+.carousel-inner img {
+    height: 550px; /* Altura fija para las imágenes */
+    object-fit: cover; /* Ajusta la imagen sin distorsión */
 }
 
-.carousel-indicators {
-    height: 100px;
+.carousel-item {
+    height: 550px; /* Altura fija para las imágenes */
+    object-fit: cover;
 }
 
-img {
-    height: 720px;
+.carousel-control-prev,
+.carousel-control-next {
+    color: #000000;
 }

@@ -43,11 +43,10 @@ body {
 .quiz-container {
     width: 70%;
     margin: 50px auto;
-    background-color: rgba(255, 204, 0, 0.503);
+    background-color: rgba(81, 117, 195, 0.5);
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.2);
-    border: 1px solid;
 }
 
 .titulo {
@@ -67,13 +66,23 @@ body {
     bottom: 4px;
     text-align: center;
     font-size: 40px;
-    color: #098812;
+    border: rgba(255, 255, 255, 0.7) solid;
+    border-radius: 1em;
+    padding: 0.3em;
 }
 
 h1 {
     text-align: center;
-    color: #098812;
 }
+
+form {
+    display: grid;
+    gap: 1em;
+    margin-left: 2.6em;
+    justify-content: center;
+    width: 92%;
+}
+
 .question {
     background: rgba(240, 240, 240, 0.821);
     padding: 15px;
@@ -94,7 +103,7 @@ h1 {
     display: block;
     width: 50%;
     margin: auto;
-    background-color: rgba(16, 189, 33, 0.682);
+    background-color: #5175c3;
     font-weight: bold;
     color: white;
     border: none;
@@ -104,6 +113,6 @@ h1 {
     transition: background 0.3s;
 }
 .btn-submit:hover {
-    background-color: #01e01b;
+    background-color: #618ded;
 }
 
