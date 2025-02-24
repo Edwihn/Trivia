@@ -74,10 +74,10 @@ body, html {
 
 #carouselExampleCaptions {
     width: 100%; /* Ocupa el 100% del contenedor */
-    max-width: 900px; /* Ancho máximo del carrusel */
+    max-width: 1200px; /* Ancho máximo del carrusel */
     border-radius: 10px; /* Bordes redondeados */
     overflow: hidden; /* Oculta el contenido que sobresale */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra opcional */
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
 
 .carousel-inner img {
