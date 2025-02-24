@@ -58,6 +58,7 @@ def answer():
         for i in range(1,11):
             questions_answers.append(request.form.get(f'questions{i}'))
         
+        print('ANSWERS ', questions_answers) 
         quiz.update_user_answers(questions_answers)
         return redirect(url_for('main.render_answers'))
     else:
@@ -66,9 +67,12 @@ def answer():
 @main_bp.route('/correct_incorrect_answers', methods=['GET'])
 def render_answers():
     answers = quiz.get_user_answers()
-    print("HERE IS THE LEN PRROOOO: ", len(answers) )
+   
     questions = quiz.get_questions()
+   
+    print('QUESTIONS ',questions)
     questions_and_answers = []
     for i in range(0,10):
         questions_and_answers.append([questions[i][2], questions[i][3], answers[i]])
+    print('QUESTIONS AND ANSWERS ', questions_and_answers)
     return render_template('answers.html', questions=questions_and_answers)
