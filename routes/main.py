@@ -8,20 +8,7 @@ quiz = Quiz()
 
 @main_bp.route("/")
 def index():
-    
-    
     return render_template('main_page.html')
-
-@main_bp.route('/get_a_question')
-def get_question():
-    conn = get_db_connection()
-    cursor = conn.cursor()
-    query = 'SELECT * FROM trivia WHERE id_trivia = 7'
-    cursor.execute(query)
-    question = cursor.fetchone()
-    cursor.close()
-    
-    return f'Esta es la pregunta perrillo {question}'
 
 @main_bp.route('/questions/<category>', methods=['GET'])
 def questions_video_games(category):
@@ -70,7 +57,6 @@ def render_answers():
    
     questions = quiz.get_questions()
    
-    print('QUESTIONS ',questions)
     questions_and_answers = []
     for i in range(0,10):
         questions_and_answers.append([questions[i][2], questions[i][3], answers[i]])
